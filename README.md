@@ -10,22 +10,15 @@ Politechnika Wrocławska, 2025
 
 ## Zawartość eksperymentów
 
-| Nr | Zakres badania                            | Notebook                                      |
-|----|--------------------------------------------|-----------------------------------------------|
-| 1  | Benchmark klasyfikatorów CNN               | [`benchmark_cnn.ipynb`](experiments/1_benchmark_cnn/benchmark_cnn.ipynb) |
-| 2  | Detekcja danych spoza rozkładu (OOD)       | [`ood_detection.ipynb`](experiments/2_ood_detection/ood_detection.ipynb) |
-| 3  | Transfer learning (ImageNet → ImageNet-R)  | [`transfer_learning.ipynb`](experiments/3_transfer_learning/transfer_learning.ipynb) |
-| 4  | Odporność na zakłócenia (ImageNet-C)       | [`robustness_analysis.ipynb`](experiments/4_robustness/robustness_analysis.ipynb) |
+| Nr | Zakres badania                            | Notebook                                      | Uruchom w Colabie |
+|----|--------------------------------------------|-----------------------------------------------|-------------------
+| 1  | Benchmark klasyfikatorów CNN               | [`benchmark_cnn.ipynb`](experiments/1_benchmark_cnn/benchmark_cnn.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/grzemich/Praca-Magisterska/blob/main/experiments/1_benchmark_cnn/benchmark_cnn.ipynb) |
+| 2  | Detekcja danych spoza rozkładu (OOD)       | [`ood_detection.ipynb`](experiments/2_ood_detection/ood_detection.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/grzemich/Praca-Magisterska/blob/main/experiments/2_ood_detection/ood_detection.ipynb) |
+| 3  | Transfer learning (ImageNet → ImageNet-R)  | [`transfer_learning.ipynb`](experiments/3_transfer_learning/transfer_learning.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/grzemich/Praca-Magisterska/blob/main/experiments/3_transfer_learning/transfer_learning.ipynb) |
+| 4  | Odporność na zakłócenia (ImageNet-C)       | [`robustness_analysis.ipynb`](experiments/4_robustness/robustness_analysis.ipynb) | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/grzemich/Praca-Magisterska/blob/main/experiments/4_robustness/robustness_analysis.ipynb) |
 
-Każdy notebook zawiera własne zależności (np. `!pip install ...`) i może być uruchomiony bezpośrednio w Google Colaboratory.
 
-## Uruchomienie w Colabie
-
-Aby uruchomić dowolny eksperyment, wystarczy kliknąć odpowiedni link do notebooka i wybrać „Otwórz w Colab”. Przykład:
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/grzemich/Praca-Magisterska/blob/main/experiments/1_benchmark_cnn/benchmark_cnn.ipynb)
-
----
+Każdy notebook zawiera własne zależności (np. `!pip install ...`) i może być uruchomiony bezpośrednio w Google Colaboratory za pomocą przycisku w ostatniej kolumnie, lub pobrany jako plik `.ipynb`.
 
 ## Konfiguracja środowiska
 
@@ -45,9 +38,9 @@ Eksperymenty były uruchamiane w środowisku Google Colab z poniższą konfigura
 - Pobierany automatycznie przez notebook — wymaga pliku `kaggle.json`
   
 #### Instrukcja pobrania pliku json:
-1. Zalogowanie lub zarejestrowanie konta na [https://www.kaggle.com](https://www.kaggle.com)
-2. Wygenerowanie tokenu API (`Account > Create New API Token`)
-3. Wykonanie następujących komend w notebooku Colab:
+1. Zaloguj się lub zarejestruj konto na [https://www.kaggle.com](https://www.kaggle.com)
+2. Wygeneruj token API (`Account > Create New API Token`)
+3. Wykonaj następujące komendy zawarte w każdym notebooku:
 ```python
 from google.colab import files
 files.upload()  # Gdy strona poprosi o plik, należy wybrać wygenerowany wcześniej token kaggle.json
@@ -56,15 +49,15 @@ files.upload()  # Gdy strona poprosi o plik, należy wybrać wygenerowany wcześ
 !cp kaggle.json ~/.kaggle/
 !chmod 600 ~/.kaggle/kaggle.json
 ```
-### ImageNet-R
-
-- Używany w: transfer learning (3)
-- Źródło: https://github.com/hendrycks/imagenet-r
-
 ### ImageNet-O
 
 - Używany w: OOD detection (2)
 - Źródło: https://github.com/hendrycks/natural-adv-examples
+
+### ImageNet-R
+
+- Używany w: transfer learning (3)
+- Źródło: https://github.com/hendrycks/imagenet-r
 
 ### ImageNet-C
 
@@ -74,7 +67,7 @@ files.upload()  # Gdy strona poprosi o plik, należy wybrać wygenerowany wcześ
 
 ### Uwaga
 
-Zbiory danych nie są załączone w repozytorium ze względu na ograniczenia licencyjne oraz ich znaczny rozmiar (kilkanaście GB lub więcej).
+Zbiory danych nie zostały dołączone do repozytorium ze względu na ograniczenia licencyjne oraz ich duży rozmiar (kilkanaście GB lub więcej).
 Użytkownik powinien pobrać je samodzielnie i:
 - umieścić je lokalnie w folderze datasets/, lub
 - załadować do Google Drive i podłączyć w notebooku za pomocą:
@@ -84,4 +77,10 @@ drive.mount('/content/drive')
 ```
 Ścieżki do danych można dostosować w notebookach za pomocą zmiennych takich jak data_path.
 
+## Licencja
 
+Kod dostępny na licencji MIT. Zbiory danych pochodzą z zewnętrznych źródeł i podlegają ich własnym warunkom licencyjnym.
+
+## Replikowalność
+
+Wszystkie eksperymenty można uruchomić bezpośrednio w środowisku Google Colab. Każdy notebook zawiera kod instalacyjny, definicje modeli i sposób wczytywania danych. Wyniki mogą minimalnie się różnić w zależności od użytego GPU i dostępnych zasobów.
